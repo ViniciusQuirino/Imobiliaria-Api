@@ -1,10 +1,23 @@
-import "reflect-metadata"
-import "express-async-errors"
-import express from "express"
+import "reflect-metadata";
+import "express-async-errors";
+import handleError from "./errors/handleError";
+import express from "express";
+import userRoutes from "./routes/users.routes";
+import loginRoutes from "./routes/login.routes";
+import categoriesRoutes from "./routes/categories.routes";
+import propertiesRoutes from "./routes/properties.routes";
+import scheduleRoutes from "./routes/schedule.routes";
 
+const app = express();
 
-const app = express()
-app.use(express.json())
+app.use(express.json());
 
+app.use("/users", userRoutes);
+app.use("/login", loginRoutes);
+app.use("/categories", categoriesRoutes);
+app.use("/properties", propertiesRoutes);
+app.use("/schedules", scheduleRoutes);
 
-export default app
+app.use(handleError);
+
+export default app;
