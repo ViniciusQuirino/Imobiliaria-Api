@@ -1,11 +1,8 @@
-import { timeStamp } from "console";
 import {
   Column,
   PrimaryGeneratedColumn,
   Entity,
   ManyToOne,
-  CreateDateColumn,
-  Timestamp,
 } from "typeorm";
 import Properties from "./properties.entites";
 import { User } from "./user.entities";

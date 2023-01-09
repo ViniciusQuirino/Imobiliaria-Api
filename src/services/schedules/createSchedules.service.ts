@@ -27,7 +27,7 @@ const createSchedulesService = async (data: IScheduleRequest) => {
     throw new AppError("formato de horario errado", 400);
   }
 
-  if (all <= 800 || all >= 1800) {
+  if (all < 800 || all > 1800) {
     throw new AppError("Esse horario está fechado", 400);
   }
 
